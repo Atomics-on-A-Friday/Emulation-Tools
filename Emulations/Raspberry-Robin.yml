@@ -1,0 +1,24 @@
+emulation_plan: Raspberry Robin
+desription: |
+  Red Canary is tracking a worm spread by external drives that leverages Windows Installer to reach out to QNAP-associated domains and download a malicious DLL.
+  Reference: https://redcanary.com/blog/raspberry-robin/
+author: Burning_PM
+atomics:
+- technique: T1059.003
+  guid: df81db1b-066c-4802-9bc8-b6d030c3ba8e
+  input_arguments:
+    input_file:
+      C:\Users\Public\t1059.003_cmd.cmd
+- technique: T1218.007
+  guid: 44a4bedf-ffe3-452e-bee4-6925ab125662
+  input_arguments:
+    msi_payload:
+      https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.007/bin/T1218.007_JScript.msi
+    msi_exe:
+      c:\windows\system32\msiexec.exe
+- technique: T1218.008
+  guid: 2430498b-06c0-4b92-a448-8ad263c388e2
+  input_arguments:
+- technique: T1218.001
+  guid: 5cb87818-0d7c-4469-b7ef-9224107aebe8
+  input_arguments:

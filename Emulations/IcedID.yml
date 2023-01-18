@@ -1,0 +1,37 @@
+emulation_plan: IcedID
+desription: |
+  IcedID is a banking trojan which performs web injection on browsers and acts as proxy to inspect and manipulate traffic. 
+  It steals information, such as credentials, from victims. It then sends that stolen information to a remote server.
+author: Burning_PM
+atomics:
+- technique: T1553.005
+  guid: 42f22b00-0242-4afc-a61b-0da05041f9cc
+  input_arguments:
+    path_of_iso:
+      PathToAtomicsFolder\T1553.005\bin\FeelTheBurn.iso
+- technique: T1016
+  guid: 970ab6a1-0157-4f3f-9a73-ec4166754b23
+  input_arguments:
+- technique: T1518.001
+  guid: 1553252f-14ea-4d3b-8a08-d7a4211aa945
+  input_arguments:
+- technique: T1082
+  guid: 66703791-c902-4560-8770-42b8a91f7667
+  input_arguments:
+- technique: T1482
+  guid: 2e22641d-0498-48d2-b9ff-c71e496ccdbe
+  input_arguments:
+- technique: T1053.005
+  guid: ec27f65-db86-4c2d-b66c-61945aee87c2
+  input_arguments:
+- technique: T1055.012
+  guid: 562427b4-39ef-4e8c-af88-463a78e70b9c
+  input_arguments:
+    hollow_binary_path:
+      C:\Windows\System32\cmd.exe
+    parent_process_name:
+      explorer
+    sponsor_binary_path:
+      C:\Windows\System32\notepad.exe
+    spawnto_process_name:
+      notepad

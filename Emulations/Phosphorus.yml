@@ -1,0 +1,56 @@
+emulation_plan: Phosphorus
+desription: |
+  This emulation plan is based on the great work from the DFIR Report team who analyzed an intrustion from Phosphorus, an Iranian-sponsored threat actor. 
+  The focus is on the TTPs performed after post-exploitation of the Exchange server.
+
+  Reference: https://thedfirreport.com/2022/03/21/phosphorus-automates-initial-access-using-proxyshell/
+author: Burning_PM
+atomics:
+- technique: T1078.001
+  guid: 42f53695-ad4a-4546-abb6-7d837f644a71
+  input_arguments:
+    time:
+      10:10
+- technique: T1105
+  guid: c01cad7f-7a4c-49df-985e-b190dcf6a279
+  input_arguments:
+    remote_file:
+      https://github.com/redcanaryco/atomic-red-team/blob/597a0cead409e577e3e2261a7a596ba51c0f610a/atomics/T1218/src/x64/T1218.dll
+    local_path:
+      c:\Atomic.dll
+- technique: T1136.001
+  guid: 6657864e-0323-4206-9344-ac9cd7265a4f
+  input_arguments:
+    username:
+      AtomicUser
+    password:
+      P@ssw0rd123412
+- technique: T1078.001
+  guid: 99747561-ed8d-47f2-9c91-1e5fde1ed6e0
+  input_arguments:
+    guest_user:
+      AtomicUser
+    guest_password:
+      P@ssw0rd123412
+    local_admin_group:
+      Administrators
+    remote_desktop_users_group:
+      'Remote Desktop Users'
+    remove_rdp_access_during_cleanup:
+      1
+- technique: T1562.001
+  guid: 6b8df440-51ec-4d53-bf83-899591c9b5d7
+  input_arguments:
+- technique: T1562.004
+  guid: d9841bf8-f161-4c73-81e9-fd773a5ff8c1
+  input_arguments:
+- technique: T1003.001
+  guid: 2536dee2-12fb-459a-8c37-971844fa73be
+  input_arguments:
+- technique: T1560
+  guid: 2536dee2-12fb-459a-8c37-971844fa73be
+  input_arguments:
+    input_file:
+      '$env:TEMP\lsass-comsvcs.dmp'
+    output_file:
+      '$env:TEMP\lsass.zip'
