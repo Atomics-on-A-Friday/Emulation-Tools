@@ -1,0 +1,50 @@
+emulation_plan: SocGholish
+desription: |
+  Per Red Canary, SocGholish is an initial access threat that leverages drive-by-downloads masquerading as software updates. 
+  Active since at least April 2018, SocGholish has been linked to the suspected Russian cybercrime group Evil Corp (also known as Indrik Spider).
+
+  References:
+  https://redcanary.com/threat-detection-report/threats/socgholish/
+  https://www.reliaquest.com/blog/socgholish-fakeupdates/
+author: Burning_PM
+atomics:
+- technique: T1105
+  guid: 97116a3f-efac-4b26-8336-b9cb18c45188
+  input_arguments:
+    vbscript_file:
+      '%USERPROFILE%\Desktop\Desktop\Update.js'
+- technique: T1033
+  guid: 4c4959bf-addf-4b4a-be86-8d09cc1857aa
+  input_arguments:
+    computer_name:
+      localhost
+- technique: T1033
+  guid: 1553252f-14ea-4d3b-8a08-d7a4211aa945
+  input_arguments:
+- technique: T1482
+  guid: 2e22641d-0498-48d2-b9ff-c71e496ccdbe
+  input_arguments:
+- technique: T1218.011
+  guid: 9fd5a74b-ba89-482a-8a3e-a5feaa3697b0
+  input_arguments:
+    input_url:
+      'https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.010/bin/AllTheThingsx64.dll'
+    input_file:
+      'C:\ProgramData\nopdmv.dll'
+- technique: T1055.012
+  guid: 562427b4-39ef-4e8c-af88-463a78e70b9c
+  input_arguments:
+    hollow_binary_path:
+      C:\Windows\System32\cmd.exe
+    parent_process_name:
+      explorer
+    sponsor_binary_path:
+      C:\Windows\System32\werfault.exe
+    spawnto_process_name:
+      werfault
+- technique: T1069.002
+  guid: dd66d77d-8998-48c0-8024-df263dc2ce5d
+  input_arguments:
+- technique: T1087.002
+  guid: b8a563d4-a836-4993-a74e-0a19b8481bfe
+  input_arguments:
