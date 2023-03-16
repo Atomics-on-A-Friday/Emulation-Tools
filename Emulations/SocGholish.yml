@@ -11,8 +11,6 @@ atomics:
 - technique: T1105
   guid: 97116a3f-efac-4b26-8336-b9cb18c45188
   input_arguments:
-    vbscript_file:
-      '%USERPROFILE%\Desktop\Desktop\Update.js'
 - technique: T1033
   guid: 4c4959bf-addf-4b4a-be86-8d09cc1857aa
   input_arguments:
