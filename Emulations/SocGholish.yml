@@ -17,8 +17,10 @@ atomics:
     computer_name:
       localhost
 - technique: T1033
-  guid: 1553252f-14ea-4d3b-8a08-d7a4211aa945
+  guid: 3d257a03-eb80-41c5-b744-bb37ac7f65c7
   input_arguments:
+    output_path:
+      $env:temp
 - technique: T1482
   guid: 2e22641d-0498-48d2-b9ff-c71e496ccdbe
   input_arguments:
