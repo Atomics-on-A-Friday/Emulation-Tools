@@ -48,7 +48,7 @@ atomics:
   guid: 2536dee2-12fb-459a-8c37-971844fa73be
   input_arguments:
 - technique: T1560
-  guid: 2536dee2-12fb-459a-8c37-971844fa73be
+  guid: 41410c60-614d-4b9d-b66e-b0192dd9c597
   input_arguments:
     input_file:
       '$env:TEMP\lsass-comsvcs.dmp'
